@@ -60,7 +60,6 @@
     .bar-prot { background: #0056B3; }
     .bar-fat  { background: #f59e0b; }
     .bar-carb { background: #10b981; }
-    footer { margin-top: 32px; font-size: 0.78rem; color: #aaa; text-align: center; }
   </style>
 </head>
 <body>
@@ -112,15 +111,21 @@
       if (!age || !weight || !height) { alert('Preencha tudo!'); return; }
       let bmr = (selectedGender === 'male') ? (10 * weight + 6.25 * height - 5 * age + 5) : (10 * weight + 6.25 * height - 5 * age - 161);
       const bonus = (document.getElementById('chk-run').classList.contains('active') ? 200 : 0) + (document.getElementById('chk-gym').classList.contains('active') ? 150 : 0);
-      const tdee = Math.round(bmr * selectedFactor + bonus); const target = tdee - 500;
-      const prot = Math.round(weight * 2); const fat = Math.round(weight * 1);
+      const tdee = Math.round(bmr * selectedFactor + bonus); 
+      const target = tdee - 500;
+      const prot = Math.round(weight * 2); 
+      const fat = Math.round(weight * 1);
       const carb = Math.round((target - (prot * 4) - (fat * 9)) / 4);
-      document.getElementById('res-tdee').textContent = tdee; document.getElementById('res-target').textContent = target;
-      document.getElementById('res-prot').textContent = prot + 'g'; document.getElementById('res-fat').textContent = fat + 'g'; document.getElementById('res-carb').textContent = carb + 'g';
-      document.getElementById('bar-prot').style.width = '30%'; document.getElementById('bar-fat').style.width = '30%'; document.getElementById('bar-carb').style.width = '40%';
+      document.getElementById('res-tdee').textContent = tdee; 
+      document.getElementById('res-target').textContent = target;
+      document.getElementById('res-prot').textContent = prot + 'g'; 
+      document.getElementById('res-fat').textContent = fat + 'g'; 
+      document.getElementById('res-carb').textContent = carb + 'g';
+      document.getElementById('bar-prot').style.width = '30%'; 
+      document.getElementById('bar-fat').style.width = '30%'; 
+      document.getElementById('bar-carb').style.width = '40%';
       document.getElementById('result-card').classList.add('show');
     }
   </script>
 </body>
 </html>
-
