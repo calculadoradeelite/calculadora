@@ -147,8 +147,8 @@
     </div>
     <div class="macros-title">Distribuição de Macronutrientes</div>
     <div class="macro-bars">
-      <div class="macro-item"><div class="macro-header"><span class="macro-name">🥩 Proteína</span><span class="macro-val" id="res-prot">—</span></div><div class="bar-bg"><div class="bar-fill bar-prot" id="bar-prot" style="width:0%"></div></div></div>
-      <div class="macro-item"><div class="macro-header"><span class="macro-name">🥑 Gordura</span><span class="macro-val" id="res-fat">—</span></div><div class="bar-bg"><div class="bar-fill bar-fat" id="bar-fat" style="width:0%"></div></div></div>
+      <div class="macro-item"><div class="macro-header"><span class="macro-name">🥩 Proteína (1.8g/kg)</span><span class="macro-val" id="res-prot">—</span></div><div class="bar-bg"><div class="bar-fill bar-prot" id="bar-prot" style="width:0%"></div></div></div>
+      <div class="macro-item"><div class="macro-header"><span class="macro-name">🥑 Gordura (0.9g/kg)</span><span class="macro-val" id="res-fat">—</span></div><div class="bar-bg"><div class="bar-fill bar-fat" id="bar-fat" style="width:0%"></div></div></div>
       <div class="macro-item"><div class="macro-header"><span class="macro-name">🍚 Carboidratos</span><span class="macro-val" id="res-carb">—</span></div><div class="bar-bg"><div class="bar-fill bar-carb" id="bar-carb" style="width:0%"></div></div></div>
     </div>
     <div class="disclaimer">⚠️ Estes valores são estimativas. Consulte um nutricionista para um plano personalizado.</div>
@@ -204,8 +204,9 @@
       const adjustment = selectedGoal === 'loss' ? -500 : 400;
       const target = tdee + adjustment;
 
-      const prot = Math.round(weight * 2);
-      const fat  = Math.round(weight * 1);
+      // Novos fatores: Prot 1.8 e Gordura 0.9
+      const prot = Math.round(weight * 1.8);
+      const fat  = Math.round(weight * 0.9);
       const carbKcal = Math.max(0, target - (prot * 4) - (fat * 9));
       const carb = Math.round(carbKcal / 4);
 
